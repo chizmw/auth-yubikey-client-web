@@ -76,7 +76,28 @@ sub verify_otp {
     );
 }
 
+=head1 SYNOPSIS
+
+    use Auth::YubiKey::Client::Web;
+
+    my $yubiauth = Auth::YubiKey::Client::Web->new(
+        id      => $id,
+        api_key => $apikey,
+    );
+
+    my $result = $yubiauth->verify_otp($input);
+
+    if ($result->is_success) {
+        say 'Good to go';
+        say 'user-id: ' . $result->public_id;
+    }
+    else {
+        say 'Oh dear: ' . $result->status;
+    }
+
+=cut
+
 1;
-# ABSTRACT: Auth::YubiKey::Client::Web needs a more meaningful abstract
+# ABSTRACT: Authenticate using the Yubico Web API
 __END__
 # vim: ts=8 sts=4 et sw=4 sr sta

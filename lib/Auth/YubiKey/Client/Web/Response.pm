@@ -140,6 +140,6 @@ sub parse_response {
 }
 
 1;
-# ABSTRACT: Auth::YubiKey::Client::Web::Response needs a more meaningful abstract
+# ABSTRACT: Response object when using the Yubico Web API
 __END__
 # vim: ts=8 sts=4 et sw=4 sr sta
