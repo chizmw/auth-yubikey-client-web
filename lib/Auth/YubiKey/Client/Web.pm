@@ -36,12 +36,42 @@ has ua => (
     }
 );
 
+=head2 METHODS
+
+=cut
+
+=head3 nonce()
+
+This function returns a
+L<nonce|http://en.wikipedia.org/wiki/Cryptographic_nonce> for use in the
+validation step,
+
+    my $nonce = nonce();
+
+=cut
 sub nonce {
     my $data    = rand() . $$ . {} . time;
     my $key     = "@INC";
     my $digest  = hmac_sha1_hex($data, $key);
 };
 
+=head3 verify_otp($self, $otp)
+
+Given an OTP make a call to the remote service and validate the value
+provided.
+
+This method returns an L<Auth::YubiKey::Client::Web::Response> object which
+can be queried for the validity of the request.
+
+    my $response = $self->verify_otp( $otp );
+    if ($response->is_success) {
+        # yay!
+    }
+    else {
+        # boo!
+    }
+
+=cut
 sub verify_otp {
     my $self = shift;
     my $otp  = shift;
@@ -94,6 +124,30 @@ sub verify_otp {
     else {
         say 'Oh dear: ' . $result->status;
     }
+
+=head1 API KEY
+
+To use this module you will require an API key from Yubico. You can
+get a key by visiting the following page and entering the required
+information:
+
+=over 4
+
+=item L<https://upgrade.yubico.com/getapikey/>
+
+=back
+
+=head1 FURTHER READING
+
+Here are some related, useful or interesting links:
+
+=over 4
+
+=item L<How do I get an API-Key for YubiKey development?|https://www.yubico.com/faq/api-key-yubikey-development/>
+
+=item L<Validation Protocol Version 2.0|https://github.com/Yubico/yubikey-val/wiki/ValidationProtocolV20>
+
+=back
 
 =cut
 
