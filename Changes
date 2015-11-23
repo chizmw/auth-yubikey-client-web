@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.0.2     2015-11-23 17:19:26+00:00 UTC
+
  - default to https for API URL
  - add skeleton POD for author tests
  - replace NoTabsTests with Test::NoTabs (dzil)
