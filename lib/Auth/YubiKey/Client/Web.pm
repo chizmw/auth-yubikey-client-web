@@ -1,6 +1,6 @@
 package Auth::YubiKey::Client::Web;
-use Moo;
 
+use Moo;
 use Carp;
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex hmac_sha1);
 use HTTP::Tiny;

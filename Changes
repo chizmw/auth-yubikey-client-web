@@ -2,5 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+ - replace NoTabsTests with Test::NoTabs (dzil)
+ - swap PkgVersion and PkgDist order (dzil)
+ - add blank line after package declaration (dzil)
+
 0.0.1     2013-12-19 10:45:18 UTC
     - Initial release

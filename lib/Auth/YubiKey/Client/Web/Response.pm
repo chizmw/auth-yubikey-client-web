@@ -1,6 +1,6 @@
 package Auth::YubiKey::Client::Web::Response;
-use Moo;
 
+use Moo;
 use Digest::HMAC_SHA1 'hmac_sha1';
 use MIME::Base64;
 

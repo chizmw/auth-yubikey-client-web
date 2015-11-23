@@ -4,7 +4,7 @@ Auth::YubiKey::Client::Web - Authenticate using the Yubico Web API
 
 # VERSION
 
-version 0.0.1
+version 0.0.2
 
 # SYNOPSIS
 
@@ -30,7 +30,7 @@ version 0.0.1
 ### nonce()
 
 This function returns a
-[nonce](http://en.wikipedia.org/wiki/Cryptographic\_nonce) for use in the
+[nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce) for use in the
 validation step,
 
     my $nonce = nonce();
@@ -40,7 +40,7 @@ validation step,
 Given an OTP make a call to the remote service and validate the value
 provided.
 
-This method returns an [Auth::YubiKey::Client::Web::Response](http://search.cpan.org/perldoc?Auth::YubiKey::Client::Web::Response) object which
+This method returns an [Auth::YubiKey::Client::Web::Response](https://metacpan.org/pod/Auth::YubiKey::Client::Web::Response) object which
 can be queried for the validity of the request.
 
     my $response = $self->verify_otp( $otp );
