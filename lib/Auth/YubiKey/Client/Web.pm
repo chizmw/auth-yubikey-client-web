@@ -24,7 +24,7 @@ has api_key => (
 # https://code.google.com/p/yubikey-val-server-php/wiki/GettingStartedWritingClients
 has verify_url => (
     is  => 'ro',
-    default => 'http://api2.yubico.com/wsapi/2.0/verify?',
+    default => 'https://api2.yubico.com/wsapi/2.0/verify?',
 );
 
 has ua => (
