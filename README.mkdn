@@ -25,9 +25,19 @@ version 0.0.2
         say 'Oh dear: ' . $result->status;
     }
 
-## METHODS
+# CLASS ATTRIBUTES
 
-### nonce()
+## id
+
+## api\_key
+
+## verify\_url
+
+## ua
+
+# METHODS
+
+## nonce()
 
 This function returns a
 [nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce) for use in the
@@ -35,7 +45,7 @@ validation step,
 
     my $nonce = nonce();
 
-### verify\_otp($self, $otp)
+## verify\_otp($self, $otp)
 
 Given an OTP make a call to the remote service and validate the value
 provided.

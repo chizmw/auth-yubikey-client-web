@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
 
  - default to https for API URL
+ - add skeleton POD for author tests
  - replace NoTabsTests with Test::NoTabs (dzil)
  - swap PkgVersion and PkgDist order (dzil)
  - add blank line after package declaration (dzil)

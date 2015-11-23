@@ -9,24 +9,40 @@ use URI::Escape;
 
 use Auth::YubiKey::Client::Web::Response;
 
+=head1 CLASS ATTRIBUTES
+
+=cut
+
+=head2 id
+
+=cut
 has id => (
     is  => 'ro',
     isa => sub { Carp::confess( 'id must be defined' ) unless defined $_[0] },
     required => 1,
 );
 
+=head2 api_key
+
+=cut
 has api_key => (
     is  => 'ro',
     isa => sub { Carp::confess( 'api_key must be defined' ) unless defined $_[0] },
     required => 1,
 );
 
+=head2 verify_url
+
+=cut
 # https://code.google.com/p/yubikey-val-server-php/wiki/GettingStartedWritingClients
 has verify_url => (
     is  => 'ro',
     default => 'https://api2.yubico.com/wsapi/2.0/verify?',
 );
 
+=head2 ua
+
+=cut
 has ua => (
     is  => 'ro',
     default => sub {
@@ -36,11 +52,11 @@ has ua => (
     }
 );
 
-=head2 METHODS
+=head1 METHODS
 
 =cut
 
-=head3 nonce()
+=head2 nonce()
 
 This function returns a
 L<nonce|http://en.wikipedia.org/wiki/Cryptographic_nonce> for use in the
@@ -55,7 +71,7 @@ sub nonce {
     my $digest  = hmac_sha1_hex($data, $key);
 };
 
-=head3 verify_otp($self, $otp)
+=head2 verify_otp($self, $otp)
 
 Given an OTP make a call to the remote service and validate the value
 provided.

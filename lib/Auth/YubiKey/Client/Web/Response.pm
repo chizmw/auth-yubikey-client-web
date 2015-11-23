@@ -4,47 +4,105 @@ use Moo;
 use Digest::HMAC_SHA1 'hmac_sha1';
 use MIME::Base64;
 
+=head1 CLASS ATTRIBUTES
+
+=cut
+
+=head2 request_apikey
+
+=cut
 has request_apikey => (
     is          => 'ro',
     required    => 1,
 );
+
+=head2 request_otp
+
+=cut
 has request_otp => (
     is          => 'ro',
     required    => 1,
 );
+
+=head2 request_nonce
+
+=cut
 has request_nonce => (
     is          => 'ro',
     required    => 1,
 );
+
+=head2 request_response
+
+=cut
 has request_response => (
     is          => 'ro',
     required    => 1,
 );
+
+=head2 h
+
+=cut
 has h => (
     is          => 'rw'
 );
+
+=head2 t
+
+=cut
 has t => (
     is          => 'rw'
 );
+
+=head2 otp
+
+=cut
 has otp => (
     is          => 'rw'
 );
+
+=head2 nonce
+
+=cut
 has nonce => (
     is          => 'rw'
 );
+
+=head2 sl
+
+=cut
 has sl => (
     is          => 'rw'
 );
+
+=head2 status
+
+=cut
 has status => (
     is          => 'rw'
 );
+
+=head2 public_id
+
+=cut
 has public_id => (
     is          => 'rw',
 );
+
+=head2 datastring
+
+=cut
 has datastring => (
     is          => 'rw',
 );
 
+=head1 PRIVATE METHODS
+
+=cut
+
+=head2 BUILDARGS
+
+=cut
 sub BUILDARGS {
     my ( $class, @args ) = @_;
     unshift @args, "attr1" if @args % 2 == 1;
@@ -87,6 +145,9 @@ sub _build_datastring {
     return join('&', @response_blobs);
 }
 
+=head2 BUILD
+
+=cut
 sub BUILD {
     my $self = shift;
 
@@ -124,16 +185,31 @@ sub BUILD {
     );
 }
 
+=head1 METHODS
+
+=cut
+
+=head2 is_success
+
+=cut
 sub is_success {
     my $self = shift;
     return !!($self->status eq 'OK');
 }
 
+=head2 is_error
+
+=cut
 sub is_error {
     my $self = shift;
     return !!($self->status ne 'OK');
 }
 
+=head2 parse_response
+
+Nothing implemented.
+
+=cut
 sub parse_response {
     my $self = shift;
     my $response = shift;
